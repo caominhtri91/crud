@@ -1,0 +1,201 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "CRUD API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "crud",
+      "description": "create, read, update, delete"
+    }
+  ],
+  "paths": {
+    "/get_list": {
+      "get": {
+        "tags": ["get_list"],
+        "summary": "Get List Product",
+        "operationId": "get_list_product",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {}
+          },
+          "400": {
+            "description": "Invalid Params",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "tags": ["create"],
+        "summary": "Create product",
+        "operationId": "create_product",
+        "requestBody": {
+          "description": "Create Product",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProduct"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {}
+          },
+          "400": {
+            "description": "Invalid Params",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/update": {
+      "put": {
+        "tags": ["update"],
+        "summary": "Update product",
+        "operationId": "update_product",
+        "requestBody": {
+          "description": "Update product",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProduct"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {}
+          },
+          "400": {
+            "description": "Invalid Params",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/delete": {
+      "delete": {
+        "tags": ["delete"],
+        "summary": "Delete product",
+        "operationId": "delete_product",
+        "requestBody": {
+          "description": "Update product",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteProduct"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {}
+          },
+          "400": {
+            "description": "Invalid Params",
+            "content": {}
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ListProduct": {
+        "type": "object",
+        "properties": [{
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }]
+      },
+      "CreateProduct": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      },
+      "UpdateProduct": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      },
+
+      "DeleteProduct": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "data": {
+            "type": "object"
+          },
+          "errors": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
