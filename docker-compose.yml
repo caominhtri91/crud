@@ -25,9 +25,12 @@ services:
     environment:
       PORT: 3979
       NODE_ENV: "development"
-      TYPEORM_CONNECTION : "mysql"
+      TYPEORM_CONNECTION: "mysql"
       TYPEORM_HOST: mysql
       TYPEORM_USERNAME: "crud_api"
       TYPEORM_PASSWORD: "superpassword"
       TYPEORM_DATABASE: "crud"
       TYPEORM_PORT: 3306
+      TYPEORM_ENTITIES: "dist/entity/*.js"
+      TYPEORM_MIGRATIONS_DIR: "src/migration"
+      TYPEORM_MIGRATIONS: "dist/migration/*.js"
