@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 import { NotAuthorizedError } from '../errors/not-authorized-error';
-import { BusinessError } from '../lib/status-code';
+import { BusinessError } from '../handler/status-code';
 
 /**
  * permissionUserLogin check if user authorized or not

@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import { body } from 'express-validator';
 
-import { SuccessResponse, SuccessNoResponse } from '../../lib/ApiResponse';
+import { SuccessResponse, SuccessNoResponse } from '../../handler/api-response';
 import { prefixApiV1 } from '../version';
 import { create, update, soft_delete, get_list } from './controllers';
 import { validateRequest } from '../../middleware/validate-request';
-import { ResponseStatus } from '../../lib/status-code';
+import { ResponseStatus } from '../../handler/status-code';
 
 export default [
   {

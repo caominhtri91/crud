@@ -9,7 +9,8 @@ import express from 'express';
 import swaggerUI from 'swagger-ui-express';
 import { createConnection } from 'typeorm';
 
-import { applyMiddleware, applyRoutes } from './lib';
+import { applyMiddleware } from './handler/apply-middleware';
+import { applyRoutes } from './handler/apply-routes';
 import Logger from './lib/Logger';
 import middleware from './middleware';
 import errorHandlers from './middleware/error-handler';

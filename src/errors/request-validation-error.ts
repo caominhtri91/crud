@@ -1,6 +1,6 @@
 import { ValidationError } from 'express-validator';
 import { CustomError } from './custom-error';
-import { ResponseStatus, BusinessError } from '../lib/status-code';
+import { ResponseStatus, BusinessError } from '../handler/status-code';
 
 export class RequestValidationError extends CustomError {
   statusCode = ResponseStatus.BAD_REQUEST;

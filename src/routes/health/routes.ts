@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { SuccessTextResponse } from '../../lib/ApiResponse';
+import { SuccessTextResponse } from '../../handler/api-response';
 import { prefixApiV1 } from '../version';
 import { health } from './controllers';
 

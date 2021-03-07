@@ -1,5 +1,5 @@
 import { CustomError } from './custom-error';
-import { ResponseStatus, BusinessError } from '../lib/status-code';
+import { ResponseStatus, BusinessError } from '../handler/status-code';
 
 export class BadRequestError extends CustomError {
   statusCode = ResponseStatus.BAD_REQUEST;

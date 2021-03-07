@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { CustomError } from '../errors/custom-error';
-import { BusinessError } from '../lib/status-code';
+import { BusinessError } from '../handler/status-code';
 
 const handleError = (router: Router) => {
   router.use((err: Error, req: Request, res: Response, next: NextFunction) => {
