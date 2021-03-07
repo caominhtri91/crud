@@ -7,7 +7,7 @@
     "dev": "tsc-watch --onSuccess \"node ./dist/index.js\"",
     "start": "npx tsc && node dist/index.js",
     "start:pm2": "npx tsc && pm2 start --name assets-management-api dist/index.js",
-    "migration": "tsc && typeorm migration:generate -n migrate && tsc && typeorm migration:run"
+    "migration": "rm -rf ./dist && tsc && typeorm migration:generate -n migrate && tsc && typeorm migration:run"
   },
   "devDependencies": {
     "@types/compression": "^1.7.0",
