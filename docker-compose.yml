@@ -13,21 +13,21 @@ services:
       MYSQL_PASSWORD: "superpassword"
     volumes:
       - /home/nix/database/mysql:/var/lib/mysql
-  # api:
-  #   restart: always
-  #   build:
-  #       context: .
-  #       dockerfile: Dockerfile
-  #   ports:
-  #       - "3979:3979"
-  #   depends_on:
-  #     - mysql
-  #   environment:
-  #     PORT: 3979
-  #     NODE_ENV: "development"
-  #     TYPEORM_CONNECTION : "mysql"
-  #     TYPEORM_HOST: mysql
-  #     TYPEORM_USERNAME: "crud_api"
-  #     TYPEORM_PASSWORD: "superpassword"
-  #     TYPEORM_DATABASE: "crud"
-  #     TYPEORM_PORT: 3306
+  api:
+    restart: always
+    build:
+        context: .
+        dockerfile: Dockerfile
+    ports:
+        - "3979:3979"
+    depends_on:
+      - mysql
+    environment:
+      PORT: 3979
+      NODE_ENV: "development"
+      TYPEORM_CONNECTION : "mysql"
+      TYPEORM_HOST: mysql
+      TYPEORM_USERNAME: "crud_api"
+      TYPEORM_PASSWORD: "superpassword"
+      TYPEORM_DATABASE: "crud"
+      TYPEORM_PORT: 3306
