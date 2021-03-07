@@ -5,10 +5,12 @@ import {
   Index,
   CreateDateColumn,
   UpdateDateColumn,
+  DeleteDateColumn,
 } from 'typeorm';
 
 @Entity({ schema: 'product' })
 @Index(['name'])
+@Index(['deleted_at'])
 export class Product {
   @PrimaryGeneratedColumn('increment')
   id: number;
@@ -27,4 +29,7 @@ export class Product {
 
   @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
   updated_at: string;
+
+  @DeleteDateColumn({ name: 'deleted_at', type: 'timestamp' })
+  deleted_at?: Date;
 }

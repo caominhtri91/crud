@@ -18,6 +18,8 @@ import { NotFoundError } from './errors/not-found-error';
 import { prefixApiV1 } from './routes/version';
 
 (async () => {
+  await createConnection();
+
   const app = express();
   applyMiddleware(middleware, app);
   applyRoutes(routes, app);
@@ -32,8 +34,6 @@ import { prefixApiV1 } from './routes/version';
   applyMiddleware(errorHandlers, app);
 
   const { PORT = 3979 } = process.env;
-
-  await createConnection();
 
   app.listen(PORT, () => {
     const used_memory = process.memoryUsage().heapUsed / 1024 / 1024;

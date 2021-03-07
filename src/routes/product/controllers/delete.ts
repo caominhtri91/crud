@@ -4,9 +4,9 @@ import { Product } from '../../../entity/Product';
 
 export const soft_delete = async (data: any) => {
   await getConnection()
+    .getRepository(Product)
     .createQueryBuilder()
-    .delete()
-    .from(Product)
+    .softDelete()
     .where('id = :id', { id: data.id })
     .execute();
 };
